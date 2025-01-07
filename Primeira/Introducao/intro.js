@@ -4,9 +4,11 @@ console.log("Ola pessoas")
 // responsaveis por guardar dados na memoria, evitam repetição
 var nome = "lucas"
 
+
 console.log(nome)
 
 let idade = 18
+
 const temCabeloPreto = true
 
 console.log(temCabeloPreto)
