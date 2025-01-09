@@ -4,7 +4,10 @@ Aulas online sobre javascript
 Comandos git
 
 - git clone
-
+- git status => mostrar o status de alteracoes no projeto
+- git add . => incluir todos os arquivos mudados
+- git commit -m "nome do commit" => commitar e dar um nome do commit
+- git push => mandar pro repositorio na nuvem
 
 Outros comandos do terminal
 
