@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Refatoracao</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        background-color: #17264a;
+        color: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+        gap: 20px;
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 300px;
+      }
+      input {
+        padding: 10px;
+        border-radius: 8px;
+      }
+      button {
+        border-radius: 8px;
+        padding: 10px;
+        background-color: cornflowerblue;
+        color: #17264a;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      h2 {
+        color: rgb(255, 159, 124);
+      }
+      h1 {
+        font-size: 31px;
+        text-align: center;
+        font-family: cursive;
+        line-height: 32px;
+        width: 100%;
+      }
+      @media (width <= 768px) {
+        section {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Funcao com parametro</h1>
+    <section>
+      <h2>Funcao de somar</h2>
+      <input type="text" id="n1" placeholder="Insira um numero" />
+      <input type="text" id="n2" placeholder="Insira um numero" />
+      <button onclick="calcular('n1', 'n2', 'respSoma', '+')">CALCULAR</button>
+      <p id="respSoma"></p>
+    </section>
+    <section>
+      <h2>Funcao de subtracao</h2>
+      <input type="text" id="n3" placeholder="Insira um numero" />
+      <input type="text" id="n4" placeholder="Insira um numero" />
+      <button onclick="calcular('n3', 'n4', 'respSub', '-' )">CALCULAR</button>
+      <p id="respSub"></p>
+    </section>
+    <section>
+      <h2>Funcao de multiplicacao</h2>
+      <input type="text" id="n5" placeholder="Insira um numero" />
+      <input type="text" id="n6" placeholder="Insira um numero" />
+      <button onclick="calcular('n5', 'n6', 'respMulti', '*' )">
+        CALCULAR
+      </button>
+      <p id="respMulti"></p>
+    </section>
+    <section>
+      <h2>Funcao de divisao</h2>
+      <input type="text" id="n7" placeholder="Insira um numero" />
+      <input type="text" id="n8" placeholder="Insira um numero" />
+      <button onclick="calcular('n7', 'n8', 'respDiv', '/' )">CALCULAR</button>
+      <p id="respDiv"></p>
+    </section>
+
+    <script>
+      function calcular(id1, id2, respId, operador) {
+        // alert(id1 + ", " + id2 + ", " + respId + ", " + operador)
+        // alert(`${id1}, ${id2}, ${respId}, ${operador} = parametros passados`)
+        var num1 = parseFloat(document.getElementById(id1).value);
+        var num2 = parseFloat(document.getElementById(id2).value);
+        var resultado;
+
+        switch (operador) {
+          case "+":
+            resultado = num1 + num2
+            break;
+          case "-":
+            resultado = num1 - num2
+            break;
+          case "*":
+             resultado = num1 * num2
+            break;
+          case "/":
+            if(num2 !== 0){
+                resultado = num1 / num2
+            }else{
+                resultado = "Erro: divisao por 0"
+            }
+            break;
+          default:
+            resultado = "Operador invalido"
+            break;
+        }
+        if (Number.isInteger(resultado)){
+             document.getElementById(respId).textContent = resultado
+        } else {
+             document.getElementById(respId).textContent = resultado.toFixed(2)
+        }
+        // document.getElementById(respId).textContent = formatNumber(resultado)
+      }
+
+    //   function formatNumber(n){
+    //     if(Number.isInteger(n)){
+    //         return n;
+    //     }else{
+    //         return n.toFixed(2)
+    //     }
+    //   }
+
+    </script>
+  </body>
+</html>
